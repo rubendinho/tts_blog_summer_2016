@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+        	<%= @blog_post.title %>
+
+        </div>
+        
+        <div class="panel-body">
+
+          by <b><%= @blog_post.user.username %></b> <br>
+  			<%= @blog_post.blog_entry %>
+
+        </div>
+        <div class="panel-footer">
+
+			<%= link_to 'Back', blog_posts_path %>
+
+        </div>
+      </div>
+
+      <%= render 'comments/form', comment: @comment %>
+	<br>
+    
+    <% @comments.each do | comment | %>
+      	<%= comment.entry %> by <%= comment.user.email%> <br>
+  	<% end %>
+    
+    </div>
+</div>
+
+
+
